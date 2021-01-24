@@ -1,5 +1,6 @@
 package com.example.dhdesafiofirebase
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dhdesafiofirebase.databinding.ActivityLoginBinding
@@ -20,11 +21,24 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         mAuth = FirebaseAuth.getInstance()
+
+        binding.btnLogin.setOnClickListener {
+            signinWithEmail()
+        }
+
+        binding.tvCreateAccount.setOnClickListener {
+            startActivity(Intent(this, CadastroActivity::class.java))
+        }
     }
 
     private fun signinWithEmail() {
         val email = binding.edtEmail.text.toString()
         val password = binding.edtPassword.text.toString()
+
+        if (email.isEmpty() || password.isEmpty()) {
+            showToast(this, "Favor, preencher e-mail e  senha")
+            return
+        }
 
         mAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
