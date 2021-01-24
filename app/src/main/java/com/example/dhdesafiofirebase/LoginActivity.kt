@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dhdesafiofirebase.databinding.ActivityLoginBinding
-import com.example.dhdesafiofirebase.helper.appLogin
+import com.example.dhdesafiofirebase.helper.appHome
 import com.example.dhdesafiofirebase.helper.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
@@ -47,7 +47,7 @@ class LoginActivity : AppCompatActivity() {
                     this,
                     "Bem vindo, Nome: ${it.user?.displayName} Email: ${it.user?.email} UserID: ${it.user?.uid} !"
                 )
-                appLogin(this)
+                appHome(this)
                 finish()
             }.addOnFailureListener {
                 if (it is FirebaseAuthInvalidCredentialsException) {

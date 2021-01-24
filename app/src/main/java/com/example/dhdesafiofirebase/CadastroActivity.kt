@@ -3,7 +3,7 @@ package com.example.dhdesafiofirebase
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dhdesafiofirebase.databinding.ActivityCadastroBinding
-import com.example.dhdesafiofirebase.helper.appLogin
+import com.example.dhdesafiofirebase.helper.appHome
 import com.example.dhdesafiofirebase.helper.showToast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
@@ -46,7 +46,7 @@ class CadastroActivity : AppCompatActivity() {
             .addOnCompleteListener {
             }.addOnSuccessListener {
                 showToast(this, "Conta criada com sucesso")
-                appLogin(this)
+                appHome(this)
             }.addOnFailureListener {
                 showToast(this, it.toString())
                 if (it is FirebaseAuthUserCollisionException) {

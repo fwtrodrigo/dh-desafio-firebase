@@ -13,6 +13,6 @@ fun showToast(context: Context, msg: String) {
     ).show()
 }
 
-fun appLogin(c1: Context) {
+fun appHome(c1: Context) {
     c1.startActivity(Intent(c1, MainActivity::class.java))
 }

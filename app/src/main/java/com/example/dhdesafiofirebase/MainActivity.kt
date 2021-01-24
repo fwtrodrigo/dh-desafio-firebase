@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         initRecycerView()
 
         binding.fabAdd.setOnClickListener {
-            addJogo()
+            startActivity(Intent(this, CadastroJogoActivity::class.java))
         }
     }
 
