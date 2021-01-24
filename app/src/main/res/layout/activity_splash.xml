@@ -6,8 +6,11 @@
     tools:context=".SplashActivity">
 
     <ImageView
+        android:id="@+id/ivSplash"
         android:layout_width="match_parent"
+        android:scaleType="centerCrop"
         android:layout_height="match_parent"
-        android:contentDescription="@string/splash_screen" />
+        android:contentDescription="@string/splash_screen"
+        android:src="@drawable/splashfirebase" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
