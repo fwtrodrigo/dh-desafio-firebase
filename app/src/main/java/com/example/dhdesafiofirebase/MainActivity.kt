@@ -1,7 +1,7 @@
 package com.example.dhdesafiofirebase
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.dhdesafiofirebase.databinding.ActivityMainBinding
@@ -38,7 +38,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onJogoItemClick(jogo: Jogo) {
-        val s = "${jogo.titulo} \n${jogo.descricao}"
-        Toast.makeText(this, s, Toast.LENGTH_SHORT).show()
+        startActivity(
+            Intent(this, JogoActivity::class.java)
+                .putExtra("jogo", jogo)
+        )
     }
 }

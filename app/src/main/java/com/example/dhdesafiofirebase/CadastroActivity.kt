@@ -23,7 +23,6 @@ class CadastroActivity : AppCompatActivity() {
         mAuth = FirebaseAuth.getInstance()
 
         binding.btnCreateAccount.setOnClickListener {
-            val name = binding.edtName.text.toString()
             val email = binding.edtEmail.text.toString()
             val password = binding.edtPassword.text.toString()
             val passwordRepeate = binding.edtPasswordRepeate.text.toString()

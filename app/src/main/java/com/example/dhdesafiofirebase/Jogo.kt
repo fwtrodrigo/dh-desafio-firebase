@@ -1,3 +1,10 @@
 package com.example.dhdesafiofirebase
 
-data class Jogo(var titulo: String, var anoLancamento: Int, var descricao: String, var capa: String)
+import java.io.Serializable
+
+data class Jogo(
+    var titulo: String,
+    var anoLancamento: Int,
+    var descricao: String,
+    var capa: String
+) : Serializable
