@@ -8,4 +8,8 @@
     <string name="create_account">Create account</string>
     <string name="name">Name</string>
     <string name="repeate_password">Repeate Password</string>
+    <string name="titulo">Titulo</string>
+    <string name="ano">Ano</string>
+    <string name="capa_jogo">Capa Jogo</string>
+    <string name="adicionar_jogo">Adicionar Jogo</string>
 </resources>
