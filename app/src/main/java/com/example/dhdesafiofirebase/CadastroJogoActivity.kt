@@ -2,7 +2,6 @@ package com.example.dhdesafiofirebase
 
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -12,13 +11,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.example.dhdesafiofirebase.databinding.ActivityCadastroJogoBinding
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import java.util.*
 
 class CadastroJogoActivity : AppCompatActivity() {
-
 
     private lateinit var binding: ActivityCadastroJogoBinding
     private val RC_PHOTO = 190
@@ -137,14 +134,5 @@ class CadastroJogoActivity : AppCompatActivity() {
                     }
                 }
         }
-    }
-
-    private fun showSnack(view: View) {
-        val snackbar = Snackbar.make(
-            view, "Adicionado com sucesso!",
-            Snackbar.LENGTH_LONG
-        ).setAction("Action", null)
-        snackbar.setActionTextColor(Color.BLUE)
-        snackbar.show()
     }
 }

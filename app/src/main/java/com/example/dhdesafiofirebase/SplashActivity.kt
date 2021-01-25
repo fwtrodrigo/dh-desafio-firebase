@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dhdesafiofirebase.databinding.ActivitySplashBinding
+import com.example.dhdesafiofirebase.helper.appHome
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -23,8 +25,15 @@ class SplashActivity : AppCompatActivity() {
         scope.launch {
             delay(3000)
 
-            startActivity(Intent(application, LoginActivity::class.java))
-            finish()
+            val user = FirebaseAuth.getInstance().currentUser?.uid
+            if (user != null) {
+                appHome(this@SplashActivity)
+                finish()
+            } else {
+                startActivity(Intent(application, LoginActivity::class.java))
+                finish()
+            }
+
         }
 
     }

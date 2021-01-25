@@ -3,6 +3,7 @@ package com.example.dhdesafiofirebase
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dhdesafiofirebase.databinding.ActivityJogoBinding
+import com.squareup.picasso.Picasso
 
 class JogoActivity : AppCompatActivity() {
 
@@ -23,5 +24,7 @@ class JogoActivity : AppCompatActivity() {
         binding.tvTitulo.text = jogo.titulo
         binding.tvTitulo2.text = jogo.titulo
         binding.tvAnoLancamento.text = jogo.anoLancamento.toString()
+        Picasso.get().load(jogo.capa)
+            .into(binding.ivCapa)
     }
 }

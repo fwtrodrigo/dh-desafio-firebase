@@ -2,6 +2,7 @@ package com.example.dhdesafiofirebase
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.dhdesafiofirebase.databinding.ActivityMainBinding
@@ -11,6 +12,7 @@ class MainActivity : AppCompatActivity() {
     private val jogos = mutableListOf<Jogo>()
     private val adapter = JogoAdapter(jogos, this::onJogoItemClick)
     private lateinit var binding: ActivityMainBinding
+    private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,6 +24,12 @@ class MainActivity : AppCompatActivity() {
         binding.fabAdd.setOnClickListener {
             startActivity(Intent(this, CadastroJogoActivity::class.java))
         }
+
+        viewModel.lJogo.observe(this) {
+            addJogo(it)
+        }
+
+        viewModel.obterJogos()
     }
 
     private fun initRecycerView() {
@@ -31,8 +39,7 @@ class MainActivity : AppCompatActivity() {
         binding.rvJogos.layoutManager = layoutManager
     }
 
-    private fun addJogo() {
-        val jogo = Jogo("Titulo", 1994, "Descricao", "https://www.google.com/image")
+    private fun addJogo(jogo: Jogo) {
         jogos.add(jogo)
         adapter.notifyItemInserted(jogos.lastIndex)
     }
