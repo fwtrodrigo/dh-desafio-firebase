@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.dhdesafiofirebase.databinding.ItemJogoBinding
 import com.squareup.picasso.Picasso
 
-class JogoAdapter( val jogos: MutableList<Jogo>, private val callback: (Jogo) -> Unit) :
+class JogoAdapter(private val callback: (Jogo) -> Unit) :
     RecyclerView.Adapter<JogoAdapter.VH>() {
+
+    var jogos = mutableListOf<Jogo>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): JogoAdapter.VH {
         val binding = ItemJogoBinding.inflate(LayoutInflater.from(parent.context), parent, false)

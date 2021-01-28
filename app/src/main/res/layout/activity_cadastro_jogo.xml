@@ -110,7 +110,7 @@
         android:background="@drawable/shape_redondo"
         android:contentDescription="@string/adicionar_capa_jogo"
         android:padding="25dp"
-        android:scaleType="fitEnd"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_camera"
         app:layout_constraintBottom_toTopOf="@+id/cadastroLayer"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,8 +120,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgCapa"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
         android:padding="25dp"
         android:visibility="gone"
         app:civ_border_color="@color/white"

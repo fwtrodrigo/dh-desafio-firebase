@@ -9,10 +9,11 @@ import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
 
-    val lJogo = MutableLiveData<Jogo>()
+    val jogos = MutableLiveData<ArrayList<Jogo>>()
+
     fun obterJogos() {
+        val jogosFirestore = arrayListOf<Jogo>()
         try {
-            val respJogos = mutableListOf<Jogo>()
             viewModelScope.launch {
                 FirebaseFirestore.getInstance().collection("jogos").get()
                     .addOnSuccessListener { result ->
@@ -22,18 +23,15 @@ class MainViewModel : ViewModel() {
                             val d = jogo.data["descricao"].toString()
                             val c = jogo.data["capa"].toString()
 
-                            val game = Jogo(t, a, d, c)
-                            lJogo.value = game
+                            val j = Jogo(t, a, d, c)
+                            jogosFirestore.add(j)
                         }
+                        jogos.value = jogosFirestore
                     }
                     .addOnFailureListener { exception ->
                         Log.w("MAINVIEWMODEL", "Error getting documents : $exception")
                     }
-
             }
-
-            Log.d("MAINVIEWMODEL&&&&&&&&&&&&&&&&", "$lJogo")
-
         } catch (e: Exception) {
             throw java.lang.Exception()
         }
