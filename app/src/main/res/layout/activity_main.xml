@@ -7,21 +7,33 @@
     android:background="@color/grey"
     tools:context=".MainActivity">
 
-
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilPesquisa"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_margin="10dp"
         android:background="@color/white"
-        android:drawableStart="@drawable/ic_search"
-        android:drawableEnd="@drawable/ic_mic"
         android:gravity="center_vertical"
+        android:hint="@string/search_games"
+        android:paddingHorizontal="15dp"
         app:endIconDrawable="@drawable/ic_mic"
+        app:endIconMode="custom"
+        app:hintEnabled="false"
         app:layout_constraintBottom_toTopOf="@id/rvJogos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_search">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtPesquisa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--            android:drawableStart="@drawable/ic_search"-->
+    <!--            android:drawableEnd="@drawable/ic_mic"-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvJogos"

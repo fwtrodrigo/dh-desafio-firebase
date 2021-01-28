@@ -2,10 +2,13 @@ package com.example.dhdesafiofirebase
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.dhdesafiofirebase.databinding.ActivityMainBinding
+import com.example.dhdesafiofirebase.helper.showToast
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +31,23 @@ class MainActivity : AppCompatActivity() {
         viewModel.jogos.observe(this) {
             adapter.jogos = it
             adapter.notifyDataSetChanged()
+        }
+
+        binding.tilPesquisa.setStartIconOnClickListener {
+            val termo = binding.edtPesquisa.text.toString()
+
+
+            if (termo.isEmpty()) {
+                viewModel.obterJogos()
+                return@setStartIconOnClickListener
+            }
+            Log.d("BODOOWQDOQOWDQODQDQ", "$termo")
+
+            viewModel.pesquisarJogo(termo)
+        }
+
+        binding.tilPesquisa.setEndIconOnClickListener {
+            showToast(this, "Segure para falar")
         }
     }
 

@@ -106,8 +106,8 @@ class CadastroJogoActivity : AppCompatActivity() {
                         Log.i("Teste", it.toString())
 
                         val url = it.toString()
-                        val titulo = binding.edtTitulo.text.toString()
-                        val descricao = binding.edtDescricao.text.toString()
+                        val titulo = binding.edtTitulo.text.toString().toUpperCase(Locale.ROOT)
+                        val descricao = binding.edtDescricao.text.toString().toUpperCase(Locale.ROOT)
                         val anoLancamento = binding.edtAnoLancamento.text.toString().toInt()
 
                         val jogo = Jogo(titulo, anoLancamento, descricao, url)
